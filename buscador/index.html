@@ -33,6 +33,7 @@
   .s-dig{background:#123a33;color:#6fe0cf}
   .s-hig{background:#3a2f12;color:#f0c878}
   .s-pan{background:#331238;color:#e6a0f0}
+  .s-uri{background:#10303a;color:#6fd4e0}
   .cbody{padding:0 16px 16px;border-top:1px solid var(--line);display:none}
   .card.open .cbody{display:block}
   .row{margin:12px 0 0}
@@ -55,14 +56,15 @@
 <body>
 <header>
   <h1>🔍 Buscador de Patología — Profe Ana Acosta ↔ Zachary 6.ª ed. (2017)</h1>
-  <p class="sub">Escribe un tema (gastritis, hígado graso, fasciola…) y te dice <b>dónde ir en Zachary</b>, qué leer, qué saltarte, la lesión histológica y lo común en Colombia.</p>
+  <p class="sub">Escribe un tema (gastritis, hígado graso, fasciola, pielonefritis, urolito…) y te dice <b>dónde ir en Zachary</b>, qué leer, qué saltarte, la lesión histológica y lo común en Colombia.</p>
   <div class="controls">
-    <input id="q" type="search" placeholder="Buscar tema, lesión, agente, especie…  (ej: necrosis, vólvulo, salmonella, equino)" autocomplete="off">
+    <input id="q" type="search" placeholder="Buscar tema, lesión, agente, especie…  (ej: necrosis, pielonefritis, leptospira, struvita, gato)" autocomplete="off">
     <div class="filters">
       <button data-f="all" class="on">Todo</button>
       <button data-f="dig">Digestivo</button>
       <button data-f="hig">Hígado/biliar</button>
       <button data-f="pan">Páncreas</button>
+      <button data-f="uri">Urinario</button>
     </div>
     <button class="toggleall" id="toggleAll">Expandir todo</button>
   </div>
@@ -70,12 +72,12 @@
 </header>
 <main id="list"></main>
 <footer>
-  Fuente diapositivas: Ana Acosta (78 diapos, digestivo·hígado·páncreas). Referencias a <b>Zachary, Pathologic Basis of Veterinary Disease, 6.ª ed., 2017</b> (Cap. 7 alimentario · Cap. 8 hígado/páncreas). Las fichas con <span class="jubbtag">Jubb</span> provienen originalmente de Jubb, Kennedy &amp; Palmer en las diapositivas.<br>
+  Fuente diapositivas: Ana Acosta (digestivo·hígado·páncreas·urinario). Referencias a <b>Zachary, Pathologic Basis of Veterinary Disease, 6.ª ed., 2017</b> (Cap. 7 alimentario · Cap. 8 hígado/páncreas · Cap. 11 urinario). Las fichas con <span class="jubbtag">Jubb</span> provienen originalmente de Jubb, Kennedy &amp; Palmer en las diapositivas.<br>
   Verifica siempre la página contra tu índice del capítulo; donde no hay página exacta se da el subtítulo del libro.
 </footer>
 <script src="fichas.js"></script>
 <script>
-const SYS={dig:["s-dig","Digestivo"],hig:["s-hig","Hígado/biliar"],pan:["s-pan","Páncreas"]};
+const SYS={dig:["s-dig","Digestivo"],hig:["s-hig","Hígado/biliar"],pan:["s-pan","Páncreas"],uri:["s-uri","Urinario"]};
 let activeFilter="all";
 const list=document.getElementById("list"), q=document.getElementById("q"), count=document.getElementById("count");
 

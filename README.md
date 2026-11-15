@@ -30,7 +30,9 @@ Incluye filtros por sistema y búsqueda en vivo.
 | Digestivo (boca → intestino, peritoneo) | 1–74, 76–77 | Cap. 7 — Sistema alimentario |
 | Hígado y vía biliar | 13–40 | Cap. 8 — Hígado/biliar |
 | Páncreas exocrino | 75 | Cap. 8 — Páncreas exocrino |
-| **Urinario** | *(pendiente de agregar)* | Cap. 11 — Sistema urinario |
+| Urinario (riñón + vías urinarias bajas) | 1–42 (renal) | Cap. 11 — Sistema urinario |
+
+En total: **66 fichas** que cubren las diapositivas de los cuatro temas del parcial.
 
 ## Notas importantes
 

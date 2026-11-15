@@ -33,6 +33,7 @@
   .s-dig{background:#123a33;color:#6fe0cf}
   .s-hig{background:#3a2f12;color:#f0c878}
   .s-pan{background:#331238;color:#e6a0f0}
+  .s-uri{background:#10303a;color:#6fd4e0}
   .cbody{padding:0 16px 16px;border-top:1px solid var(--line);display:none}
   .card.open .cbody{display:block}
   .row{margin:12px 0 0}
@@ -55,14 +56,15 @@
 <body>
 <header>
   <h1>🔍 Buscador de Patología — Profe Ana Acosta ↔ Zachary 6.ª ed. (2017)</h1>
-  <p class="sub">Escribe un tema (gastritis, hígado graso, fasciola…) y te dice <b>dónde ir en Zachary</b>, qué leer, qué saltarte, la lesión histológica y lo común en Colombia.</p>
+  <p class="sub">Escribe un tema (gastritis, hígado graso, fasciola, pielonefritis, urolito…) y te dice <b>dónde ir en Zachary</b>, qué leer, qué saltarte, la lesión histológica y lo común en Colombia.</p>
   <div class="controls">
-    <input id="q" type="search" placeholder="Buscar tema, lesión, agente, especie…  (ej: necrosis, vólvulo, salmonella, equino)" autocomplete="off">
+    <input id="q" type="search" placeholder="Buscar tema, lesión, agente, especie…  (ej: necrosis, pielonefritis, leptospira, struvita, gato)" autocomplete="off">
     <div class="filters">
       <button data-f="all" class="on">Todo</button>
       <button data-f="dig">Digestivo</button>
       <button data-f="hig">Hígado/biliar</button>
       <button data-f="pan">Páncreas</button>
+      <button data-f="uri">Urinario</button>
     </div>
     <button class="toggleall" id="toggleAll">Expandir todo</button>
   </div>
@@ -70,7 +72,7 @@
 </header>
 <main id="list"></main>
 <footer>
-  Fuente diapositivas: Ana Acosta (78 diapos, digestivo·hígado·páncreas). Referencias a <b>Zachary, Pathologic Basis of Veterinary Disease, 6.ª ed., 2017</b> (Cap. 7 alimentario · Cap. 8 hígado/páncreas). Las fichas con <span class="jubbtag">Jubb</span> provienen originalmente de Jubb, Kennedy &amp; Palmer en las diapositivas.<br>
+  Fuente diapositivas: Ana Acosta (digestivo·hígado·páncreas·urinario). Referencias a <b>Zachary, Pathologic Basis of Veterinary Disease, 6.ª ed., 2017</b> (Cap. 7 alimentario · Cap. 8 hígado/páncreas · Cap. 11 urinario). Las fichas con <span class="jubbtag">Jubb</span> provienen originalmente de Jubb, Kennedy &amp; Palmer en las diapositivas.<br>
   Verifica siempre la página contra tu índice del capítulo; donde no hay página exacta se da el subtítulo del libro.
 </footer>
 <script>
@@ -532,11 +534,234 @@ const FICHAS = [
   col:"PIF (peritonitis infecciosa felina) = diagnóstico temido en gatos jóvenes en Colombia (abdomen distendido con líquido amarillo viscoso). Peritonitis por perforación/úlcera de abomaso en terneros y por rotura gástrica en equinos con cólico.",
   note:"La peritonitis suele ser SECUNDARIA (perforación/rotura de víscera): relaciona el 'sitio con rotura' por especie del cuadro 3-1."
 },
+
+// ===================== SISTEMA URINARIO (CAP. 11) =====================
+{
+  sys:"uri", diapo:"3-6", tema:"Riñón: anatomía e histología normal (nefrona, glomérulo, aparato yuxtaglomerular)", jubb:true,
+  kw:"anatomia nefrona glomerulo corteza medula tubulo proximal distal asa henle macula densa yuxtaglomerular capsula bowman pelvis papila bellini",
+  zacsec:"Cap. 11 — Urinary system › Structure and function of the kidney (estructura y función normal)",
+  zacpg:"aprox. pág. 617–625",
+  leer:"Repasa la organización: corteza (glomérulos + túbulos contorneados) y médula (asas de Henle, colectores, conductos de Bellini → papila → pelvis → uréter). Componentes del glomérulo: asas capilares, endotelio, membrana basal glomerular, epitelio (podocitos), cápsula de Bowman. Aparato yuxtaglomerular = mácula densa + células yuxtaglomerulares (renina).",
+  skip:"No memorices cada transportador tubular; domina la ruta del filtrado (glomérulo → proximal → Henle → distal → colector) para ubicar luego las lesiones.",
+  micro:"Glomérulo = ovillo capilar dentro de la cápsula de Bowman. Túbulo proximal: epitelio cúbico con borde en cepillo eosinófilo (el más abundante en corteza). Distal: más pálido, sin borde en cepillo. Reconocer esto es la base para identificar DÓNDE está la lesión.",
+  col:"Base anatómica para todo el parcial de urinario; la mayoría de estas diapos son de Jubb."
+},
+{
+  sys:"uri", diapo:"7-8", tema:"Enfermedad renal, insuficiencia renal (IRA vs IRC), uremia y azotemia",
+  kw:"insuficiencia renal aguda cronica IRA IRC uremia azotemia oliguria anuria urea creatinina nefrona etapas",
+  zacsec:"Cap. 11 — Urinary system › Renal failure and uremia (insuficiencia renal y uremia)",
+  zacpg:"aprox. pág. 625–630",
+  leer:"Distingue los términos: INSUFICIENCIA RENAL AGUDA (IRA) = inicio rápido de oliguria/anuria + azotemia. INSUFICIENCIA RENAL CRÓNICA (IRC) = resultado final de muchas nefropatías crónicas. AZOTEMIA = ↑urea y creatinina en sangre (dato de laboratorio). UREMIA = síndrome clínico ('orina en la sangre') con lesiones en varios órganos. La progresión a uremia pasa por 4 etapas.",
+  skip:"No confundas azotemia (solo el valor bioquímico ↑) con uremia (el síndrome con lesiones sistémicas). Esa diferencia es pregunta clásica.",
+  micro:"La azotemia no se 've' en histología; se ven sus CONSECUENCIAS (lesiones urémicas, ver ficha siguiente).",
+  col:"IRC es diagnóstico diarísimo en GATOS y perros geriátricos en Colombia (pérdida de peso, poliuria/polidipsia, úlceras orales). Diferenciar IRA (potencialmente reversible) de IRC (irreversible) cambia el pronóstico que das al dueño.",
+  note:"Azotemia = laboratorio. Uremia = clínica + lesiones. IRA = aguda/reversible. IRC = crónica/irreversible."
+},
+{
+  sys:"uri", diapo:"9-11", tema:"Lesiones extrarrenales de la uremia (edema pulmonar, pericarditis, estomatitis/gastritis, mineralización, osteodistrofia)",
+  kw:"uremia lesiones edema pulmonar neumonitis uremica pericarditis fibrinosa estomatitis gastritis ulcerativa mucoarteritis trombosis anemia hipoplasica mineralizacion tejidos blandos osteodistrofia fibrosa paratiroides amoniaco",
+  zacsec:"Cap. 11 — Urinary system › Extrarenal lesions of uremia (manifestaciones sistémicas de la uremia)",
+  zacpg:"aprox. pág. 628–632",
+  leer:"Cuadro MUY preguntado: relaciona lesión ↔ mecanismo. Edema pulmonar (neumonitis urémica) y pericarditis fibrinosa = ↑permeabilidad vascular. Estomatitis/gastritis ulcerativa-hemorrágica-necrótica = producción de amoníaco + necrosis vascular. Mucoarteritis/trombosis = daño endotelial. Anemia hipoplásica = ↓eritropoyetina + fragilidad eritrocitaria. Mineralización de tejidos blandos y osteodistrofia fibrosa (hiperplasia de paratiroides) = alteración del metabolismo Ca-P.",
+  micro:"Mineralización: depósitos basófilos de calcio en pleura, estómago (rugae), endocardio, pulmón. Gastritis urémica: mineralización de la mucosa gástrica + necrosis. Esto CONECTA con la 'gastritis urémica' de tu tema digestivo (diapo 43).",
+  col:"El gato/perro con IRC que llega babeando con úlceras en boca, mal aliento (amoniacal) y vómito = uremia. La mineralización gástrica se ve en necropsias de pacientes renales crónicos.",
+  note:"Esta tabla lesión↔mecanismo es casi segura en el parcial. Es el PUENTE directo entre urinario y digestivo (gastritis/estomatitis urémica)."
+},
+{
+  sys:"uri", diapo:"12-13", tema:"Anomalías del desarrollo renal (agenesia, hipoplasia, ectopia, fusión, lobulaciones fetales) y displasia renal", jubb:true,
+  kw:"agenesia hipoplasia ectopia renal fusion riñon herradura lobulaciones fetales displasia desarrollo desorganizado parenquima congenito",
+  zacsec:"Cap. 11 — Urinary system › Developmental anomalies / renal dysplasia",
+  zacpg:"aprox. pág. 632–636",
+  leer:"Agenesia = falta un riñón. Hipoplasia = riñón pequeño pero bien organizado (pocos nefronas). Ectopia = riñón en posición anormal. Fusión = riñones unidos (en herradura). Lobulaciones fetales = persistencia de la lobulación (normal en bovino/cerdo). DISPLASIA renal = desarrollo DESORGANIZADO del parénquima (diferente de hipoplasia).",
+  micro:"Displasia: estructuras renales inmaduras/desorganizadas para la edad (túbulos fetales, mesénquima primitivo, cartílago metaplásico, glomérulos inmaduros). Hipoplasia: tejido NORMAL pero en menor cantidad.",
+  col:"Displasia renal en perros jóvenes de ciertas razas (p. ej. en Colombia se reporta en razas pequeñas) → IRC a edad temprana. Diferenciar hipoplasia (organizado) de displasia (desorganizado) es clave.",
+  skip:"No memorices cada anomalía en detalle; la distinción importante es HIPOPLASIA (poco pero normal) vs DISPLASIA (desorganizado)."
+},
+{
+  sys:"uri", diapo:"14", tema:"Quistes renales", jubb:true,
+  kw:"quistes renales poliquistico cavidad epitelio congenito adquirido",
+  zacsec:"Cap. 11 — Urinary system › Renal cysts and polycystic kidney disease",
+  zacpg:"aprox. pág. 634–637",
+  leer:"Cavidades llenas de líquido en el riñón. Pueden ser congénitas (enfermedad renal poliquística) o adquiridas. Si son numerosas y grandes → destruyen parénquima → IRC.",
+  micro:"Quiste = cavidad revestida por epitelio aplanado (derivado de túbulo/nefrona), llena de líquido claro. En poliquística: múltiples quistes que reemplazan el parénquima.",
+  col:"Enfermedad renal poliquística hereditaria clásica en GATOS PERSAS (raza popular en Colombia) — tamizaje por ecografía. También en algunas razas de perros.",
+  skip:"Lo evaluable: cavidad revestida de epitelio; si son muchas → poliquística hereditaria (gato persa)."
+},
+{
+  sys:"uri", diapo:"15-16", tema:"Enfermedad glomerular: glomerulonefritis vs glomerulitis (conceptos)",
+  kw:"enfermedad glomerular glomerulonefritis glomerulitis ultrafiltrado perfusion peritubular nefrona primaria sistemica inflamacion",
+  zacsec:"Cap. 11 — Urinary system › Glomerular disease (enfermedad glomerular)",
+  zacpg:"aprox. pág. 637–645",
+  leer:"La enfermedad glomerular importa porque altera el flujo y el ultrafiltrado → se pierde toda la nefrona (el glomérulo dañado arruina su túbulo). Terminología: GLOMERULONEFRITIS (GN) = enfermedad glomerular primaria con cambios tubulointersticiales/vasculares secundarios. GLOMERULITIS = inflamación RESTRINGIDA a los glomérulos. Los glomérulos también se afectan en enfermedades sistémicas.",
+  skip:"No te pierdas en la inmunología de los complejos inmunes todavía; primero fija la diferencia GN (primaria, con repercusión tubular) vs glomerulitis (solo glomérulos).",
+  micro:"Para orientarte: el glomérulo enfermo puede estar hipercelular, con engrosamiento de membrana basal, o con material acelular. Compara con el glomérulo normal (diapo 4).",
+  col:"La GN es una de las causas de síndrome nefrótico (proteinuria, hipoalbuminemia, edema) en perros en Colombia, muchas veces secundaria a enfermedades infecciosas crónicas (ehrlichiosis, leishmaniasis)."
+},
+{
+  sys:"uri", diapo:"17-18", tema:"Tipos histológicos de glomerulonefritis (proliferativa, mesangioproliferativa, membranoproliferativa)", jubb:true,
+  kw:"glomerulonefritis proliferativa mesangioproliferativa membranoproliferativa mesangio membrana basal hipercelularidad",
+  zacsec:"Cap. 11 — Urinary system › Glomerulonephritis › Morphologic classification",
+  zacpg:"aprox. pág. 639–645",
+  leer:"Clasifica la GN por lo que prolifera/engrosa: PROLIFERATIVA (↑células del penacho glomerular). MESANGIOPROLIFERATIVA (proliferación del mesangio). MEMBRANOPROLIFERATIVA (engrosamiento de membrana basal + proliferación mesangial, 'doble contorno').",
+  micro:"Proliferativa: glomérulo hipercelular. Mesangioproliferativa: aumento de matriz/células mesangiales (centro del penacho). Membranoproliferativa: paredes capilares engrosadas ('asa de alambre') + hipercelularidad. Compara con las imágenes de diapos 17-18.",
+  col:"El tipo histológico se confirma con biopsia renal (poco frecuente en Colombia por costo). Para el parcial, basta reconocer el patrón en la imagen.",
+  skip:"No necesitas inmunofluorescencia/microscopía electrónica; identifica el patrón en H&E: ¿qué está aumentado, células o membrana?"
+},
+{
+  sys:"uri", diapo:"19-20", tema:"Amiloidosis renal", jubb:true,
+  kw:"amiloidosis amiloide eosinofilico homogeneo glomerulo rojo congo verde manzana primaria secundaria sheep perro shar pei proteinuria",
+  zacsec:"Cap. 11 — Urinary system › Glomerular amyloidosis (amiloidosis renal)",
+  zacpg:"aprox. pág. 645–648",
+  leer:"Depósito de amiloide (material eosinofílico, homogéneo, proteico) en paredes de vasos pequeños y extracelularmente, sobre todo en GLOMÉRULOS. Tipos: primaria y secundaria (la secundaria/AA, por inflamación crónica, es la más común en animales).",
+  micro:"CLAVE PARCIAL: material amorfo, eosinofílico, HOMOGÉNEO (acelular) que expande el mesangio/paredes glomerulares. Tinción ROJO CONGO → birrefringencia VERDE MANZANA con luz polarizada (diapo 20, imagen A roja / B polarizada). Si ves material homogéneo rosado en glomérulo + Rojo Congo positivo → amiloidosis.",
+  col:"Causa importante de síndrome nefrótico/IRC con proteinuria masiva en perros (Shar Pei predispuesto) y en bovinos/ovinos con inflamación crónica. En Colombia, secundaria a procesos inflamatorios/infecciosos crónicos.",
+  note:"Amiloide = eosinofílico + HOMOGÉNEO + Rojo Congo (verde manzana en polarizada). Dato de histología muy evaluable."
+},
+{
+  sys:"uri", diapo:"21", tema:"Trastornos circulatorios renales: hemorragia e infarto renal",
+  kw:"hemorragia corteza renal bacteremia viremia enterotoxemia becerro infarto necrosis coagulativa isquemia trombosis embolo rojo palido",
+  zacsec:"Cap. 11 — Urinary system › Circulatory disturbances (hemorrhage, infarction)",
+  zacpg:"aprox. pág. 648–652",
+  leer:"HEMORRAGIA: común en corteza renal en bacteremias/viremias; las hemorragias subcapsulares extensas son típicas de ENTEROTOXEMIA en becerros ('riñón pulposo' por Clostridium perfringens tipo D). INFARTO renal: áreas de necrosis coagulativa por isquemia (oclusión trombótica/embólica); pueden ser rojos (venoso/agudo) o pálidos (arterial).",
+  micro:"Infarto: zona cuneiforme (triangular, base hacia la cápsula) de necrosis de coagulación con pérdida de detalle celular; borde con congestión/inflamación. Enterotoxemia: hemorragias corticales + autólisis rápida.",
+  col:"Enterotoxemia (riñón pulposo) por Clostridium perfringens tipo D = importante en corderos/cabritos en Colombia, PREVENIBLE con vacuna clostridial. Infartos renales por tromboembolismo en gatos cardiópatas.",
+  skip:"Para infarto: recuerda 'necrosis de coagulación cuneiforme por isquemia'. Para enterotoxemia: hemorragia subcapsular en becerro/cordero."
+},
+{
+  sys:"uri", diapo:"22", tema:"Necrosis renal: cortical bilateral, medular (papilar) y necrosis tubular aguda (NTA)",
+  kw:"necrosis cortical bilateral microtrombos CID medular papilar AINE PGE2 isquemia tubular aguda NTA degeneracion tubular",
+  zacsec:"Cap. 11 — Urinary system › Renal necrosis (cortical, medullary/papillary, acute tubular necrosis)",
+  zacpg:"aprox. pág. 650–656",
+  leer:"NECROSIS CORTICAL BILATERAL: isquemia de la corteza por microtrombos difusos en arterias interlobulillares (típico de CID/coagulación intravascular diseminada). NECROSIS MEDULAR/PAPILAR: respuesta a isquemia; los AINES la favorecen al inhibir la PGE2 (que mantiene el flujo medular). NECROSIS TUBULAR AGUDA (NTA): la degeneración tubular es el proceso primario (causa #1 de IRA).",
+  micro:"NTA: epitelio tubular tumefacto/necrótico, desprendido a la luz, cilindros, membrana basal a veces desnuda. Necrosis cortical: necrosis de coagulación de corteza con trombos. Papilar: necrosis de la punta de la papila.",
+  col:"NTA por nefrotóxicos es MUY relevante en Colombia: aminoglucósidos (gentamicina), AINES, etilenglicol (anticongelante), plantas (Lantana camara, roble/Quercus), aflatoxinas. La necrosis papilar por AINES en caballos y perros deshidratados.",
+  note:"NTA = causa principal de IRA y a menudo REVERSIBLE (si la membrana basal queda intacta, el túbulo regenera). Buen punto para pregunta de concepto."
+},
+{
+  sys:"uri", diapo:"23-24", tema:"Enfermedades tubulointersticiales: nefritis intersticial (clasificación) y su cuadro de causas",
+  kw:"tubulointersticial nefritis intersticial aguda cronica linfoplasmocitica granulomatosa supurativa embolica leptospira ecoli salmonella brucella mycobacteria histoplasma aspergillus",
+  zacsec:"Cap. 11 — Urinary system › Tubulointerstitial diseases › Interstitial nephritis",
+  zacpg:"aprox. pág. 656–662",
+  leer:"Las enfermedades tubulointersticiales afectan intersticio + túbulos (la inflamación intersticial casi siempre altera la función tubular). Nefritis intersticial: aguda o crónica. Por patrón/causa (cuadro diapo 24): LINFOPLASMOCÍTICA (Leptospira, E. coli, Salmonella, Brucella); GRANULOMATOSA (micobacterias, Histoplasma, Aspergillus); SUPURATIVA (bacterias ascendentes); EMBÓLICA (émbolos sépticos).",
+  micro:"Linfoplasmocítica: infiltrado de linfocitos y plasmocitos en el intersticio + fibrosis. Granulomatosa: granulomas con macrófagos/células gigantes. Supurativa: neutrófilos. Identifica el TIPO de célula inflamatoria para nombrar la causa.",
+  col:"Leptospirosis = causa frecuente y ZOONÓSICA de nefritis intersticial en perros y bovinos en Colombia (clima húmedo, roedores). La granulomatosa por Histoplasma es relevante en zonas endémicas.",
+  note:"Asocia el PATRÓN inflamatorio (linfoplasmocítico/granulomatoso/supurativo) con el grupo de agentes del cuadro de la diapo 24."
+},
+{
+  sys:"uri", diapo:"25-26", tema:"Lesión/necrosis tubular aguda y agentes nefrotóxicos", jubb:true,
+  kw:"lesion tubular aguda nefrotoxico aminoglucosidos gentamicina AINE etilenglicol oxalato metales mercurio plomo lantana quercus roble aflatoxina ocratoxina mioglobina hemoglobina cisplatino monensina",
+  zacsec:"Cap. 11 — Urinary system › Acute tubular injury / nephrotoxicity (agentes nefrotóxicos)",
+  zacpg:"aprox. pág. 652–658",
+  leer:"La lesión tubular aguda es el daño primario de los túbulos. Agentes nefrotóxicos (cuadro diapo 26): EXÓGENOS — antimicrobianos (aminoglucósidos, anfotericina B, sulfas, tetraciclinas), antineoplásicos (cisplatino), etilenglicol (oxalato), metales (plomo, mercurio, cadmio), micotoxinas (citrinina, ocratoxina), monensina, plantas (Lantana camara, Quercus/roble, pigweed). ENDÓGENOS — bilis, hemoglobina, mioglobina.",
+  micro:"Necrosis/degeneración del epitelio tubular; en intoxicación por etilenglicol: cristales de OXALATO de calcio en la luz tubular (birrefringentes, en 'abanico/rosetas'). Pigmentos (hemoglobina/mioglobina): cilindros pardos en túbulos.",
+  col:"Muy relevante en Colombia: nefrotoxicidad por gentamicina y AINES (iatrogenia), intoxicación por roble/Quercus y Lantana en ganado de pastoreo, aflatoxinas/ocratoxina en concentrados mal almacenados, y mioglobinuria por miopatía/rabdomiólisis en equinos.",
+  note:"El túbulo proximal es el más sensible a tóxicos. Etilenglicol → cristales de oxalato en túbulos (dato clave de identificación)."
+},
+{
+  sys:"uri", diapo:"27", tema:"Nefritis intersticial no supurativa (linfohistiocítica)", jubb:true,
+  kw:"nefritis intersticial no supurativa linfohistiocitica focal cicatriz antigeno persistencia hallazgo incidental",
+  zacsec:"Cap. 11 — Urinary system › Nonsuppurative (lymphohistiocytic) interstitial nephritis",
+  zacpg:"aprox. pág. 656–660",
+  leer:"Inflamación linfohistiocítica focal con cicatrices leves, muy común en riñones. A menudo de causa desconocida/inespecífica; algunas lesiones son inflamatorias y otras focos de persistencia de antígeno.",
+  micro:"Focos intersticiales de linfocitos e histiocitos + fibrosis leve, con depresiones en la superficie (cicatrices). Suele ser hallazgo incidental en necropsia.",
+  col:"Hallazgo frecuente e incidental en necropsias de perros/bovinos en Colombia; importante que sepas que muchas veces NO tiene significado clínico (no sobreinterpretar).",
+  skip:"Lo evaluable: infiltrado linfohistiocítico focal + cicatriz, frecuentemente incidental."
+},
+{
+  sys:"uri", diapo:"28-29", tema:"Nefritis intersticial supurativa y nefritis embólica", jubb:true,
+  kw:"nefritis supurativa embolica hematogena ascendente absceso riñon manchas blancas corteza septicemia neutrofilos bacterias",
+  zacsec:"Cap. 11 — Urinary system › Suppurative (embolic) nephritis",
+  zacpg:"aprox. pág. 660–663",
+  leer:"La infección bacteriana del riñón puede ser HEMATÓGENA (→ nefritis supurativa EMBÓLICA, 'riñón en manchas blancas') o ASCENDENTE desde el tracto urinario bajo (→ PIELONEFRITIS). La embólica llega por sangre y siembra múltiples focos.",
+  micro:"Nefritis embólica: múltiples focos de neutrófilos (microabscesos) con colonias bacterianas, distribuidos al azar en la corteza. Compara con la imagen de émbolo bacteriano (diapos 28-29).",
+  col:"Nefritis embólica por septicemia: en terneros con onfaloflebitis (ombligo infectado), en endocarditis bacteriana que siembra émbolos. 'Riñón salpicado de puntos blancos' en necropsia.",
+  note:"Distingue la VÍA: embólica = hematógena (siembra al azar); pielonefritis = ascendente (desde vejiga, afecta pelvis)."
+},
+{
+  sys:"uri", diapo:"30-31", tema:"Leptospirosis renal", jubb:true,
+  kw:"leptospirosis leptospira interrogans espiroqueta zoonosis aborto nefritis intersticial septicemia hepatitis orina roedores warthin starry",
+  zacsec:"Cap. 11 — Urinary system › Leptospirosis (nefritis por Leptospira)",
+  zacpg:"aprox. pág. 658–662",
+  leer:"Infección por serovares de Leptospira interrogans (espiroqueta). Importante como causa de ABORTO y muerte fetal en animales de granja, y de enfermedad aguda (septicemia, hepatitis, nefritis, meningitis). Es ZOONOSIS.",
+  micro:"Nefritis intersticial (linfoplasmocítica/mixta); las leptospiras se demuestran con tinción de plata (Warthin-Starry) o inmunohistoquímica en túbulos (diapo 31, imagen B con organismos). El riñón puede verse pálido con focos.",
+  col:"MUY importante en Colombia: zoonosis de clima cálido/húmedo, transmitida por orina de roedores y perros; causa aborto en bovinos/cerdos y falla hepatorrenal en perros. Riesgo ocupacional para el veterinario. Prevenible con vacuna.",
+  note:"Leptospira = zoonosis + aborto + nefritis intersticial. El riñón es el reservorio (eliminación por orina). Casi segura en el parcial por relevancia local."
+},
+{
+  sys:"uri", diapo:"32-33", tema:"Pielonefritis", jubb:true,
+  kw:"pielonefritis pelvis renal ascendente tracto urinario bajo calices deformidad corynebacterium renale ecoli vaca cerda obstruccion",
+  zacsec:"Cap. 11 — Urinary system › Pyelonephritis (pielonefritis)",
+  zacpg:"aprox. pág. 662–666",
+  leer:"Inflamación de la PELVIS + parénquima renal, casi siempre por infección ASCENDENTE desde el tracto urinario bajo (la hematógena es rarísima). Se caracteriza por inflamación, necrosis y deformidad de los cálices + inflamación tubulointersticial.",
+  micro:"Infiltrado neutrofílico/supurativo en pelvis y médula, cilindros leucocitarios en túbulos, necrosis del urotelio pélvico; en crónica, fibrosis y deformidad de cálices.",
+  col:"Frecuente en vacas (Corynebacterium/Trueperella renale) y en cerdas; en perras/gatas por E. coli ascendente, favorecida por obstrucción (urolitos) o retención. Factores: hembras (uretra corta), preñez, obstrucción.",
+  note:"Pielonefritis = ASCENDENTE (desde vejiga) y afecta la PELVIS; contrástala con la nefritis embólica (hematógena, corteza). Conecta con cistitis (infección ascendente)."
+},
+{
+  sys:"uri", diapo:"34-35", tema:"Hidronefrosis",
+  kw:"hidronefrosis dilatacion pelvis calices atrofia parenquima obstruccion urolito hiperplasia prostatica neoplasia cistitis filtracion glomerular",
+  zacsec:"Cap. 11 — Urinary system › Hydronephrosis (hidronefrosis)",
+  zacpg:"aprox. pág. 666–668",
+  leer:"Dilatación de la pelvis y cálices con atrofia PROGRESIVA del parénquima (el riñón se vuelve una bolsa quística). Causa: obstrucción urinaria congénita o adquirida (urolitiasis, hiperplasia prostática en perros, compresión neoplásica, cistitis grave). Ocurre porque la filtración glomerular PERSISTE pese a la obstrucción → la orina represada comprime el parénquima.",
+  micro:"Pelvis dilatada, atrofia por compresión de túbulos y glomérulos, fibrosis intersticial. En fases avanzadas queda solo una cáscara delgada de parénquima.",
+  col:"En perros machos geriátricos por hiperplasia prostática que obstruye; por urolitos que bloquean uréter/uretra; en obstrucción uretral del gato (FLUTD). Si es unilateral puede pasar desapercibida hasta la necropsia.",
+  note:"Clave: OBSTRUCCIÓN + filtración que continúa → presión retrógrada → atrofia del parénquima. Puede ser uni o bilateral según dónde esté el bloqueo."
+},
+{
+  sys:"uri", diapo:"36", tema:"Tracto urinario bajo — anomalías de uréteres (agenesia, duplicación, uréter ectópico)", jubb:true,
+  kw:"ureter agenesia duplicacion ectopico uraco tracto urinario bajo incontinencia congenito",
+  zacsec:"Cap. 11 — Lower urinary tract › Congenital anomalies of ureters",
+  zacpg:"aprox. pág. 668–671",
+  leer:"Anomalías ureterales: agenesia (falta), duplicación (dos uréteres), y URÉTER ECTÓPICO (desemboca fuera de la vejiga, p. ej. en uretra/vagina).",
+  micro:"Son defectos anatómicos; el ectópico se diagnostica por su trayecto/desembocadura anormal.",
+  col:"El URÉTER ECTÓPICO es causa clásica de INCONTINENCIA urinaria en cachorras jóvenes (razas como golden/labrador) — motivo de consulta en Colombia: 'gotea orina' desde cachorra. Se corrige con cirugía.",
+  skip:"Lo evaluable: uréter ectópico → incontinencia en hembra joven."
+},
+{
+  sys:"uri", diapo:"37-39", tema:"Urolitiasis (cálculos urinarios) y su composición por especie", jubb:true,
+  kw:"urolitiasis urolito calculo piedra struvita oxalato urato cistina silice carbonato fosfato perro gato oveja vaca equino obstruccion uretral",
+  zacsec:"Cap. 11 — Lower urinary tract › Urolithiasis (cálculos urinarios)",
+  zacpg:"aprox. pág. 671–676",
+  leer:"Presencia de cálculos (urolitos) en las vías urinarias: agregados de solutos precipitados + proteínas + detritos. Composición por especie (cuadro diapo 38): PERRO = estruvita, oxalato, uratos (dálmata); GATO = estruvita, oxalato; BOVINO/OVINO = sílice, estruvita, carbonato, oxalato; EQUINO = carbonato; CERDO = uratos.",
+  micro:"El urolito en sí es macroscópico; en la vía urinaria causa irritación del urotelio, hemorragia, inflamación y, si obstruye, hidronefrosis/ruptura vesical.",
+  col:"Problemón en Colombia: obstrucción uretral por estruvita/oxalato en GATOS machos (emergencia, 'gato tapado'), estruvita en perros con infección urinaria, y cálculos de sílice en rumiantes a pastoreo. La obstrucción uretral es urgencia: riñón post-renal + uremia.",
+  note:"Relaciona tipo de cálculo ↔ especie (cuadro diapo 38). Estruvita se asocia a orina alcalina/infección; oxalato a orina ácida."
+},
+{
+  sys:"uri", diapo:"40", tema:"Inflamaciones del tracto urinario bajo: uretritis y cistitis",
+  kw:"cistitis uretritis bacterias ascendentes ecoli streptococcus staphylococcus hembra aguda cronica hemorragica fibrinopurulenta necrosante polipoide vejiga",
+  zacsec:"Cap. 11 — Lower urinary tract › Inflammation (cystitis, urethritis)",
+  zacpg:"aprox. pág. 676–680",
+  leer:"Uretritis (uretra) y CISTITIS (vejiga). Causa principal: bacterias ASCENDENTES, sobre todo en HEMBRAS (uretra corta): E. coli, Streptococcus spp., Staphylococcus spp. Clasifícala en aguda/crónica y por exudado: hemorrágica, fibrinopurulenta, necrosante, ulcerosa, o combinaciones. La cistitis crónica puede ser POLIPOIDE.",
+  micro:"Cistitis: infiltrado inflamatorio en la mucosa/pared vesical, hemorragia, erosión/úlcera, fibrina. Polipoide: proyecciones de mucosa hiperplásica hacia la luz. Crónica: fibrosis + infiltrado linfoplasmocitario.",
+  col:"Cistitis por E. coli ascendente muy común en perras y gatas en Colombia. Favorecida por urolitos, retención y cateterización (iatrogenia). Puede ascender → pielonefritis (conecta con diapo 32).",
+  note:"Mujeres/hembras más predispuestas (uretra corta). Vía ascendente: cistitis → uréter → pielonefritis."
+},
+{
+  sys:"uri", diapo:"41", tema:"Enfermedad felina del tracto urinario bajo (FLUTD)",
+  kw:"FLUTD felino tracto urinario bajo gato cistitis idiopatica urolitos tapon uretral obstruccion iatrogenica estres",
+  zacsec:"Cap. 11 — Lower urinary tract › Feline lower urinary tract disease (FLUTD)",
+  zacpg:"aprox. pág. 678–682",
+  leer:"Síndrome del gato con signos urinarios bajos (disuria, polaquiuria, hematuria, obstrucción). Causas: infecciones urinarias, urolitos, tapones uretrales, defectos anatómicos congénitos/adquiridos, causas iatrogénicas. Muchos casos son cistitis idiopática (asociada a estrés).",
+  micro:"Cistitis (idiopática o por urolitos): edema, hemorragia e infiltrado en la pared vesical. Tapón uretral: matriz proteica + cristales de estruvita.",
+  col:"Diagnóstico MUY frecuente en gatos en Colombia, sobre todo machos castrados, obesos, indoor, con estrés y dieta seca. La OBSTRUCCIÓN uretral del macho ('gato tapado') es urgencia vital por uremia post-renal e hiperkalemia.",
+  note:"FLUTD es un SÍNDROME (varias causas), no una sola enfermedad. El macho obstruido es emergencia. Conecta con urolitiasis y uremia."
+},
+{
+  sys:"uri", diapo:"42", tema:"Neoplasias del tracto urinario (carcinomas y tumores mesenquimales)",
+  kw:"neoplasia tumor carcinoma celulas transicionales urotelial vejiga fibroma fibrosarcoma leiomioma leiomiosarcoma hemangiosarcoma TVT perro",
+  zacsec:"Cap. 11 — Lower urinary tract › Neoplasia (tumores del tracto urinario)",
+  zacpg:"aprox. pág. 680–684",
+  leer:"Tumores epiteliales: CARCINOMAS (el más importante en vejiga = carcinoma de células transicionales/urotelial). Tumores mesenquimales: fibroma, fibrosarcoma, leiomioma, leiomiosarcoma, hemangiosarcoma.",
+  micro:"Carcinoma de células transicionales: urotelio neoplásico que forma papilas/nidos invadiendo la pared; atipia, mitosis. Los mesenquimales según su célula de origen (fibroblastos, músculo liso, endotelio).",
+  col:"El carcinoma de células transicionales de vejiga es el tumor urinario más frecuente en perros en Colombia (hembras, ciertas razas; se asocia a hematuria y disuria crónicas que no mejoran con antibiótico). Suele ubicarse en el trígono → obstrucción.",
+  note:"En vejiga de perro con hematuria crónica que no responde a antibiótico, sospecha carcinoma de células transicionales."
+},
 ];
 
 </script>
 <script>
-const SYS={dig:["s-dig","Digestivo"],hig:["s-hig","Hígado/biliar"],pan:["s-pan","Páncreas"]};
+const SYS={dig:["s-dig","Digestivo"],hig:["s-hig","Hígado/biliar"],pan:["s-pan","Páncreas"],uri:["s-uri","Urinario"]};
 let activeFilter="all";
 const list=document.getElementById("list"), q=document.getElementById("q"), count=document.getElementById("count");
 
