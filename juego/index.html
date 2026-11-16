@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔬 Adivina la Lesión — Patología (Profe Ana Acosta)</title>
+<style>
+  :root{
+    --bg:#0f1720; --card:#172330; --card2:#1d2b3a; --ink:#e8eef4; --muted:#9fb2c4;
+    --acc:#49b6a8; --acc2:#f0a24b; --ok:#54c98a; --bad:#e8706e; --warn:#e8c468;
+    --line:#2a3b4d; --chip:#223243; --resp:#5aa9e6; --card-s:#e07a7a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{padding:16px 18px 12px;border-bottom:1px solid var(--line);text-align:center}
+  h1{font-size:18px;margin:0 0 4px}
+  .sub{font-size:12.5px;color:var(--muted);margin:0}
+  main{padding:18px;max-width:780px;margin:0 auto}
+  .setup{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+  .setup h2{font-size:14px;margin:0 0 10px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .opts button{flex:1;min-width:120px;background:var(--chip);color:var(--ink);border:1px solid var(--line);padding:10px;border-radius:10px;cursor:pointer;font-size:13px}
+  .opts button.on{background:var(--acc);color:#07110f;border-color:var(--acc);font-weight:600}
+  .start{width:100%;background:var(--acc2);color:#1a1205;border:none;padding:13px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
+  .scorebar{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:12px;padding:0 2px}
+  .scorebar b{color:var(--ink)}
+  .racha{color:var(--acc2);font-weight:700}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+  .sysbadge{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:12px}
+  .s-resp{background:#123247;color:#8fcdf0}
+  .s-card{background:#3a1515;color:#f0a0a0}
+  .qlabel{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--acc)}
+  .field{margin:10px 0}
+  .field .k{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+  .field.cel .k{color:var(--acc2)}
+  .field p{margin:2px 0 0;font-size:14.5px}
+  .field.cel p{color:#ffd9a8}
+  .answers{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+  .answers button{text-align:left;background:var(--card2);color:var(--ink);border:1px solid var(--line);padding:12px 14px;border-radius:10px;cursor:pointer;font-size:14px}
+  .answers button:hover{border-color:var(--acc)}
+  .answers button.correct{background:#17422f;border-color:var(--ok);color:#aef0ce}
+  .answers button.wrong{background:#431d1d;border-color:var(--bad);color:#f0b5b4}
+  .answers button:disabled{cursor:default}
+  #openwrap{display:flex;gap:8px;margin-top:14px}
+  #openans{flex:1;padding:12px;border-radius:10px;border:1px solid var(--line);background:#0b1219;color:var(--ink);font-size:15px}
+  #openbtn{background:var(--acc);color:#07110f;border:none;padding:0 18px;border-radius:10px;font-weight:700;cursor:pointer}
+  .feedback{margin-top:14px;border-radius:12px;padding:14px;font-size:14px;display:none}
+  .feedback.show{display:block}
+  .feedback.ok{background:#12301f;border:1px solid var(--ok)}
+  .feedback.bad{background:#361616;border:1px solid var(--bad)}
+  .feedback h3{margin:0 0 8px;font-size:15px}
+  .feedback .line{margin:8px 0}
+  .feedback .ck{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--warn)}
+  .next{width:100%;margin-top:14px;background:var(--acc2);color:#1a1205;border:none;padding:13px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer}
+  .clave-box{background:#1a2a1f;border-left:3px solid var(--ok);padding:10px 12px;border-radius:0 8px 8px 0;margin-top:8px;font-size:13.5px}
+  .mini{font-size:12px;color:var(--muted)}
+  .hintbtn{background:none;border:1px dashed var(--line);color:var(--muted);border-radius:8px;padding:8px 12px;font-size:12.5px;cursor:pointer;margin-top:12px}
+  .hint{font-size:13px;color:var(--warn);margin-top:8px;display:none}
+  .restart{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:9px 14px;font-size:12.5px;cursor:pointer}
+  footer{color:var(--muted);font-size:11px;text-align:center;padding:16px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🔬 Adivina la Lesión</h1>
+  <p class="sub">Lee la descripción (macro, micro y <b>qué células hay</b>) y adivina la patología. Entrena las que se confunden.</p>
+</header>
+<main id="app"></main>
+<footer>
+  Banco basado en diapositivas de Ana Acosta (respiratorio · cardiovascular) + Zachary 6.ª ed. / Jubb.<br>
+  Recuerda: <b>agudo = neutrófilos</b> (alérgico/parásito = eosinófilos) · <b>crónico = macrófagos + linfocitos + plasmáticas</b> (granuloma = + células gigantes).
+</footer>
+<script src="lesiones.js"></script>
+<script>
+const app=document.getElementById("app");
+const SYS={resp:["s-resp","Respiratorio"],card:["s-card","Cardiovascular"]};
+let state={modo:"multi",sistema:"all",pool:[],i:0,score:0,racha:0,maxracha:0,answered:false};
+
+function norm(s){return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9 ]/g,"").trim()}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+function setupScreen(){
+  app.innerHTML=`
+    <div class="setup">
+      <h2>1. ¿Cómo quieres responder?</h2>
+      <div class="opts" id="modo">
+        <button data-v="multi" class="on">Opción múltiple</button>
+        <button data-v="open">Escribir respuesta (difícil)</button>
+      </div>
+      <h2>2. ¿Qué sistema?</h2>
+      <div class="opts" id="sistema">
+        <button data-v="all" class="on">Todos mezclados</button>
+        <button data-v="resp">Respiratorio</button>
+        <button data-v="card">Cardiovascular</button>
+      </div>
+      <button class="start" id="start">▶ Empezar a jugar</button>
+    </div>
+    <p class="mini" style="text-align:center">Al fallar te muestro la CLAVE para no confundir las parecidas. 🎯</p>`;
+  document.querySelectorAll("#modo button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#modo button").forEach(x=>x.classList.remove("on"));b.classList.add("on");state.modo=b.dataset.v});
+  document.querySelectorAll("#sistema button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#sistema button").forEach(x=>x.classList.remove("on"));b.classList.add("on");state.sistema=b.dataset.v});
+  document.getElementById("start").onclick=start;
+}
+
+function start(){
+  let base=LESIONES.filter(l=>state.sistema==="all"||l.sys===state.sistema);
+  state.pool=shuffle(base);state.i=0;state.score=0;state.racha=0;state.maxracha=0;
+  renderQuestion();
+}
+
+function buildOptions(correct){
+  // distractores INTELIGENTES: primero los que se confunden, luego otros del mismo sistema
+  let opts=[correct.nombre];
+  (correct.confunde||[]).forEach(c=>{
+    const match=LESIONES.find(l=>l.nombre===c);
+    opts.push(match?match.nombre:c);
+  });
+  const others=shuffle(LESIONES.filter(l=>l.sys===correct.sys && !opts.includes(l.nombre)));
+  for(const o of others){if(opts.length>=4)break;opts.push(o.nombre)}
+  return shuffle(opts.slice(0,4));
+}
+
+function renderQuestion(){
+  if(state.i>=state.pool.length){return renderEnd()}
+  const L=state.pool[state.i];state.answered=false;
+  const [cls,name]=SYS[L.sys];
+  const total=state.pool.length;
+  let answersHTML="";
+  if(state.modo==="multi"){
+    const opts=buildOptions(L);
+    answersHTML=`<div class="answers" id="answers">`+opts.map(o=>`<button data-v="${encodeURIComponent(o)}">${o}</button>`).join("")+`</div>`;
+  }else{
+    answersHTML=`<div id="openwrap"><input id="openans" type="text" placeholder="Escribe el nombre de la lesión…" autocomplete="off"><button id="openbtn">Responder</button></div>`;
+  }
+  app.innerHTML=`
+    <div class="scorebar">
+      <span>Pregunta <b>${state.i+1}</b>/${total}</span>
+      <span>Aciertos: <b>${state.score}</b></span>
+      <span class="racha">🔥 Racha: ${state.racha}</span>
+    </div>
+    <div class="card">
+      <span class="sysbadge ${cls}">${name}</span>
+      <div class="qlabel">Identifica esta lesión</div>
+      <div class="field"><div class="k">🩺 Macroscópico</div><p>${L.macro}</p></div>
+      <div class="field"><div class="k">🔬 Microscópico</div><p>${L.micro}</p></div>
+      <div class="field cel"><div class="k">🧫 ¿Qué células hay?</div><p>${L.celulas}</p></div>
+      ${answersHTML}
+      <button class="hintbtn" id="hintbtn">💡 Ver pista</button>
+      <div class="hint" id="hint">${L.pista||"—"}</div>
+    </div>
+    <div class="feedback" id="feedback"></div>`;
+  document.getElementById("hintbtn").onclick=()=>{document.getElementById("hint").style.display="block";document.getElementById("hintbtn").style.display="none"};
+  if(state.modo==="multi"){
+    document.querySelectorAll("#answers button").forEach(b=>b.onclick=()=>checkMulti(decodeURIComponent(b.dataset.v),b));
+  }else{
+    const submit=()=>checkOpen(document.getElementById("openans").value);
+    document.getElementById("openbtn").onclick=submit;
+    document.getElementById("openans").addEventListener("keydown",e=>{if(e.key==="Enter")submit()});
+    document.getElementById("openans").focus();
+  }
+}
+
+function checkMulti(choice,btn){
+  if(state.answered)return;state.answered=true;
+  const L=state.pool[state.i];
+  const correct=choice===L.nombre;
+  document.querySelectorAll("#answers button").forEach(b=>{
+    b.disabled=true;
+    const v=decodeURIComponent(b.dataset.v);
+    if(v===L.nombre)b.classList.add("correct");
+    else if(b===btn)b.classList.add("wrong");
+  });
+  showFeedback(correct,choice);
+}
+function checkOpen(text){
+  if(state.answered)return;state.answered=true;
+  const L=state.pool[state.i];
+  const n=norm(text);
+  // acierto si coincide con el nombre o con una palabra clave fuerte del nombre
+  const target=norm(L.nombre);
+  const keywords=target.split(" ").filter(w=>w.length>=5);
+  const correct = n.length>=4 && (target.includes(n)||n.includes(target)||keywords.some(k=>n.includes(k)));
+  document.getElementById("openbtn").disabled=true;
+  document.getElementById("openans").disabled=true;
+  showFeedback(correct,text);
+}
+
+function showFeedback(correct,choice){
+  const L=state.pool[state.i];
+  if(correct){state.score++;state.racha++;state.maxracha=Math.max(state.maxracha,state.racha)}
+  else{state.racha=0}
+  const fb=document.getElementById("feedback");
+  fb.className="feedback show "+(correct?"ok":"bad");
+  fb.innerHTML=`
+    <h3>${correct?"✅ ¡Correcto!":"❌ Incorrecto"}</h3>
+    <div class="line"><b>Respuesta:</b> ${L.nombre}</div>
+    ${!correct&&state.modo==="open"?`<div class="line mini">Tú escribiste: "${choice}"</div>`:""}
+    <div class="clave-box"><span class="ck">🎯 Cómo NO confundirla</span><br>${L.clave}</div>
+    <div class="line" style="margin-top:10px"><span class="ck">🇨🇴 En Colombia</span><br>${L.col}</div>
+    <button class="next" id="next">${state.i+1>=state.pool.length?"Ver resultado →":"Siguiente lesión →"}</button>`;
+  document.getElementById("next").onclick=()=>{state.i++;renderQuestion()};
+  fb.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function renderEnd(){
+  const total=state.pool.length;
+  const pct=Math.round(100*state.score/total);
+  let msg = pct>=90?"¡Excelente! Estás listo para el parcial. 🏆" : pct>=70?"Muy bien, repasa las que fallaste. 💪" : pct>=50?"Vas bien, pero dale otra vuelta a las parejas de confusión. 📚" : "A seguir practicando — repite el juego enfocándote en las claves. 🔁";
+  app.innerHTML=`
+    <div class="card" style="text-align:center">
+      <div class="qlabel">Resultado</div>
+      <div style="font-size:42px;font-weight:800;margin:10px 0">${state.score}/${total}</div>
+      <div style="font-size:16px;color:var(--acc2);font-weight:700">${pct}% de aciertos</div>
+      <div style="font-size:13px;color:var(--muted);margin:8px 0">Mejor racha: 🔥 ${state.maxracha}</div>
+      <p style="font-size:14px">${msg}</p>
+      <button class="start" id="again">🔁 Jugar otra vez</button>
+      <button class="restart" id="menu" style="margin-top:10px">⚙️ Cambiar modo / sistema</button>
+    </div>`;
+  document.getElementById("again").onclick=start;
+  document.getElementById("menu").onclick=setupScreen;
+}
+
+setupScreen();
+</script>
+</body>
+</html>

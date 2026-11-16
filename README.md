@@ -3,7 +3,24 @@
 Herramienta de estudio que **empareja cada diapositiva de la profe con la sección correspondiente de Zachary**
 (*Pathologic Basis of Veterinary Disease*, 6.ª ed., 2017), para no perder tiempo leyendo lo que no entra en clase.
 
-## Cómo usarlo
+## 🎮 Juego "Adivina la Lesión" (nuevo)
+
+Abre **`juego-adivina-lesion-OFFLINE.html`** con doble clic. Te describe una lesión
+(macro, micro y **qué células hay**) y adivinas cuál es.
+
+Está diseñado para las dos cosas que más cuestan en el parcial de la profe Ana Acosta:
+- **Contenido celular microscópico** (agudo = neutrófilos; alérgico/parásito = eosinófilos;
+  crónico = macrófagos + linfocitos + plasmáticas; granuloma = + células gigantes).
+- **Parejas de confusión**: las opciones falsas son justo las lesiones que se confunden
+  (bronconeumonía vs neumonía intersticial, congestión izquierda vs derecha,
+  endocardiosis vs endocarditis, etc.). Al fallar, te muestra la **clave para diferenciarlas**.
+
+Modos: opción múltiple o respuesta abierta. Filtro por sistema (respiratorio / cardiovascular).
+Cubre 26 lesiones de **respiratorio** y **cardiovascular** (temas que la profe trae del parcial pasado).
+
+---
+
+## Cómo usarlo (buscador)
 
 Hay dos formas:
 
