@@ -15,8 +15,9 @@ Está diseñado para las dos cosas que más cuestan en el parcial de la profe An
   (bronconeumonía vs neumonía intersticial, congestión izquierda vs derecha,
   endocardiosis vs endocarditis, etc.). Al fallar, te muestra la **clave para diferenciarlas**.
 
-Modos: opción múltiple o respuesta abierta. Filtro por sistema (respiratorio / cardiovascular).
-Cubre 26 lesiones de **respiratorio** y **cardiovascular** (temas que la profe trae del parcial pasado).
+Modos: opción múltiple o respuesta abierta. Filtro por sistema o todos mezclados.
+Cubre **55 lesiones de los SEIS sistemas**: digestivo, hígado, páncreas, urinario,
+respiratorio y cardiovascular (todo el parcial en un solo lugar de práctica).
 
 ---
 

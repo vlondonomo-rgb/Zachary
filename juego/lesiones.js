@@ -58,7 +58,7 @@ const LESIONES = [
   macro:"Signos sobre todo en el PULMÓN: edema pulmonar, congestión. Causas: daño miocárdico, valvulopatía mitral/aórtica, defectos congénitos, hipertensión.",
   micro:"En el pulmón: congestión de capilares alveolares, edema, hipertrofia/fibrosis de paredes alveolares, hemorragias. Aparecen las 'CÉLULAS DE INSUFICIENCIA CARDÍACA' (macrófagos cargados de hemosiderina en los alvéolos).",
   celulas:"CÉLULAS DE FALLA CARDÍACA = macrófagos alveolares con HEMOSIDERINA (pigmento pardo). Dato histológico estrella de la congestión izquierda.",
-  confunde:["Insuficiencia cardíaca derecha (congestión derecha)","Neumonía intersticial"],
+  confunde:["Insuficiencia cardíaca DERECHA (congestión derecha)","Neumonía intersticial (y bronco-intersticial)"],
   clave:"REGLA DE ORO: IZQUIERDA → la sangre se represa HACIA ATRÁS, AL PULMÓN → edema pulmonar + células de falla cardíaca + DISNEA. DERECHA → se represa al CUERPO → hígado 'nuez moscada', ASCITIS, edema, pulso yugular. Izquierda = pulmón; derecha = cuerpo/hígado.",
   col:"En perros: valvulopatía mitral degenerativa (endocardiosis) es causa #1 de falla izquierda en Colombia. Tos y disnea en perro geriátrico pequeño.",
   pista:"La sangre se represa hacia el pulmón."
@@ -68,7 +68,7 @@ const LESIONES = [
   macro:"Signos sobre el CUERPO y circulación portal: HÍGADO 'EN NUEZ MOSCADA' (aspecto moscado), ASCITIS, edema subcutáneo, pulso venoso yugular, reducción de filtración glomerular. Suele ser secundaria a la falla izquierda; causa primaria pulmonar = Cor pulmonale.",
   micro:"En el hígado: congestión + atrofia + necrosis + fibrosis CENTROLOBULILLAR (alrededor de la vena central). Patrón 'nuez moscada' = zonas rojas (congestión centrolobulillar) alternando con claras.",
   celulas:"Hepatocitos centrolobulillares atróficos/necróticos + sinusoides dilatados llenos de sangre. En crónico, fibrosis centrolobulillar.",
-  confunde:["Insuficiencia cardíaca izquierda (congestión izquierda)","Hígado congestivo pasivo"],
+  confunde:["Insuficiencia cardíaca IZQUIERDA (congestión izquierda)","Necrosis hepática centrolobulillar"],
   clave:"REGLA DE ORO: DERECHA → sangre represada AL CUERPO → hígado nuez moscada + ASCITIS + edema + yugular. IZQUIERDA → al PULMÓN → edema pulmonar + células de falla cardíaca. Si ves ASCITIS e hígado moscado = DERECHA.",
   col:"Dirofilaria immitis (gusano del corazón) en perros de tierra caliente colombiana → sobrecarga derecha → Cor pulmonale → ascitis. También secundaria a falla izquierda crónica.",
   pista:"La sangre se represa hacia el cuerpo: hígado y ascitis."
@@ -282,5 +282,303 @@ const LESIONES = [
   clave:"Pleuritis = INFLAMACIÓN de la pleura (fibrina en superficie). Hidrotórax = líquido transudado SIN inflamación. Los agentes llegan desde sangre o desde bronconeumonía/absceso pulmonar.",
   col:"Pleuroneumonía por Actinobacillus en cerdos; pleuritis secundaria a bronconeumonía en bovinos.",
   pista:"Fibrina en la superficie de la pleura."
+},
+
+// ============ DIGESTIVO ============
+{
+  sys:"dig", nombre:"Granuloma eosinofílico",
+  macro:"En GATOS: placas elevadas, firmes, a veces ulceradas, en boca/labio ('úlcera indolente' en labio superior).",
+  micro:"Focos de COLAGENOLISIS (colágeno degenerado) rodeados de infiltrado granulomatoso con eosinófilos. Responde a corticoides (base de hipersensibilidad).",
+  celulas:"EOSINÓFILOS abundantes + colágeno 'deshecho' (colagenólisis) + macrófagos. Patrón de hipersensibilidad.",
+  confunde:["Estomatitis","Carcinoma de células escamosas oral"],
+  clave:"CLAVE: gato + EOSINÓFILOS + COLAGENÓLISIS = granuloma eosinofílico. La estomatitis común no tiene colagenólisis ni ese perfil eosinofílico.",
+  col:"Motivo frecuente de consulta felina en Colombia: úlcera en labio superior o placa oral; se maneja con corticoides y descartando alergia (pulgas/alimento).",
+  pista:"Gato con eosinófilos y colágeno degenerado."
+},
+{
+  sys:"dig", nombre:"Megaesófago",
+  macro:"Dilatación de la luz esofágica; esófago flácido. Signo clínico: regurgitación (NO vómito).",
+  micro:"Hallazgo principalmente macro/funcional (atonía y flacidez del músculo). Puede haber atrofia muscular o lesión de la inervación según causa.",
+  celulas:"Sin infiltrado característico; atrofia/degeneración de músculo esofágico según causa.",
+  confunde:["Estenosis esofágica","Obstrucción esofágica"],
+  clave:"CLAVE: megaesófago = dilatación por ATONÍA/flacidez (todo el esófago flácido). Estenosis = estrechamiento con fibrosis y dilatación SOLO por delante del bloqueo.",
+  col:"En perros (congénito en cachorros o adquirido, p. ej. miastenia). Riesgo de neumonía por aspiración, común en consulta de pequeños.",
+  pista:"Esófago dilatado y flácido; el perro regurgita."
+},
+{
+  sys:"dig", nombre:"Vólvulo / torsión gástrica (GDV)",
+  macro:"En PERROS de pecho profundo: estómago dilatado Y rotado; pared gástrica oscura/congestiva por isquemia.",
+  micro:"Necrosis isquémica de la pared gástrica: congestión, hemorragia y necrosis transmural por compromiso vascular.",
+  celulas:"Congestión/hemorragia + necrosis por isquemia; neutrófilos si hay inflamación secundaria.",
+  confunde:["Dilatación gástrica simple","Úlcera gástrica"],
+  clave:"CLAVE: GDV = dilatación + ROTACIÓN con isquemia de pared. La dilatación simple no rota ni causa necrosis isquémica.",
+  col:"Urgencia quirúrgica en razas grandes (gran danés, pastor alemán, dóberman) en Colombia; mortal sin cirugía rápida.",
+  pista:"Estómago dilatado y torcido en perro grande."
+},
+{
+  sys:"dig", nombre:"Gastritis urémica",
+  macro:"Mucosa gástrica con erosiones/úlceras, a veces hemorrágica; en crónico, atrofia y fibrosis.",
+  micro:"Verdadera gastritis con cambios leucocíticos y vasculares en la LÁMINA PROPIA + MINERALIZACIÓN de la mucosa gástrica + necrosis. Atrofia/fibrosis.",
+  celulas:"Infiltrado en lámina propia + mineralización (depósito de calcio basófilo) de vasos/mucosa. Dato clave: mineralización.",
+  confunde:["Úlcera gástrica por AINES","Gastritis parasitaria"],
+  clave:"CLAVE: gastritis urémica = mineralización de la mucosa + necrosis vascular, SECUNDARIA a falla renal (uremia). Puente con tu tema URINARIO: riñón que falla → uremia → gastritis.",
+  col:"En perros/gatos con enfermedad renal crónica (muy común en geriátricos en Colombia): mal aliento amoniacal, vómito, úlceras orales.",
+  pista:"Mucosa gástrica mineralizada en un paciente renal."
+},
+{
+  sys:"dig", nombre:"Úlcera gastroduodenal",
+  macro:"Pérdida de mucosa con fondo deprimido; puede sangrar. Produce signos con menos frecuencia que en humanos.",
+  micro:"Pérdida de mucosa MÁS ALLÁ de la muscular de la mucosa, con fondo de necrosis/fibrina, tejido de granulación y a veces vaso erosionado (hemorragia).",
+  celulas:"Necrosis + fibrina + neutrófilos en el fondo; tejido de granulación (macrófagos, fibroblastos) en crónico.",
+  confunde:["Erosión gástrica","Gastritis"],
+  clave:"CLAVE: úlcera = profunda (pasa la muscular de la mucosa). Erosión = superficial (solo mucosa). Causa frecuente: AINES (comprometen la protección mucosa) por desequilibrio ácido/pepsina vs defensa.",
+  col:"Úlcera por AINES (meloxicam/ketoprofeno sin protección) es iatrogenia frecuente en perros en Colombia. En potros, úlcera gástrica por estrés.",
+  pista:"Pérdida profunda de mucosa; piensa en AINES."
+},
+{
+  sys:"dig", nombre:"Intususcepción (invaginación)",
+  macro:"Un segmento intestinal telescopado dentro del siguiente; masa tubular firme, congestiva.",
+  micro:"Pared con doble/triple capa, congestión y necrosis isquémica del segmento invaginado.",
+  celulas:"Congestión + necrosis isquémica; infiltrado inflamatorio secundario.",
+  confunde:["Vólvulo intestinal","Torsión intestinal"],
+  clave:"CLAVE: intususcepción = un segmento DENTRO de otro (telescopaje). Causa: hipermotilidad por parásitos o enteritis viral. Vólvulo = rotación sobre eje transversal; torsión = sobre eje longitudinal.",
+  col:"Frecuente en cachorros/gatitos con parvovirus o parásitos (hipermotilidad → telescopaje). Masa tubular palpable + diarrea.",
+  pista:"Un segmento de intestino metido dentro del siguiente."
+},
+{
+  sys:"dig", nombre:"Atrofia de vellosidades intestinales",
+  macro:"Mucosa intestinal lisa/aterciopelada perdida; difícil a simple vista.",
+  micro:"Vellosidades CORTAS/romas + criptas alargadas (hipertrofia de criptas) → menos superficie absortiva → malabsorción. Escala de Marsh gradúa la severidad.",
+  celulas:"Infiltrado linfoplasmocitario en lámina propia (crónico); vellosidad acortada con criptas hiperplásicas.",
+  confunde:["Enteritis catarral","Enteropatía proliferativa porcina"],
+  clave:"CLAVE: atrofia de vellosidades = vellosidad CORTA + cripta larga (intenta regenerar) → malabsorción. La enteropatía proliferativa porcina (Lawsonia) tiene criptas hiperplásicas CON pocas caliciformes y es del cerdo.",
+  col:"Giardiasis y coccidiosis crónicas en terneros/cachorros (causa frecuentísima de diarrea crónica y mal medro en Colombia); también dieta (soja en terneros, trigo en perros).",
+  pista:"Vellosidades cortas con criptas largas; da malabsorción."
+},
+{
+  sys:"dig", nombre:"Enteropatía proliferativa porcina (Lawsonia intracellularis)",
+  macro:"En CERDOS: mucosa del íleon ENGROSADA, con pliegues cerebriformes ('en cerebro').",
+  micro:"Criptas alargadas e HIPERPLÁSICAS con enterocitos inmaduros y POCAS células caliciformes. Bacilos curvos intracelulares en el ápice del enterocito (Warthin-Starry).",
+  celulas:"Enterocitos proliferados inmaduros + Lawsonia intracelular; pocas caliciformes. Inflamación variable.",
+  confunde:["Atrofia de vellosidades","Enteritis necrótica"],
+  clave:"CLAVE: cerdo + criptas HIPERPLÁSICAS + pocas caliciformes + Lawsonia intracelular = enteropatía proliferativa. A diferencia de la atrofia (vellosidad corta), aquí hay PROLIFERACIÓN.",
+  col:"Importante en porcicultura tecnificada colombiana: mala conversión alimenticia, diarrea, 'ileítis'.",
+  pista:"Cerdo con íleon engrosado y criptas hiperplásicas."
+},
+{
+  sys:"dig", nombre:"Enteritis fibrinosa",
+  macro:"Mucosa intestinal con PSEUDOMEMBRANA de fibrina (capa amarillo-grisácea adherida); heces con fibrina.",
+  micro:"Exudado de FIBRINA sobre la mucosa + necrosis superficial + infiltrado.",
+  celulas:"Fibrina + neutrófilos + restos necróticos. Patrón agudo fibrinoso.",
+  confunde:["Enteritis catarral","Enteritis hemorrágica","Enteritis necrótica"],
+  clave:"CLAVE por exudado: CATARRAL=moco (leve); FIBRINOSA=pseudomembrana de fibrina; HEMORRÁGICA=sangre; NECRÓTICA=necrosis del epitelio. Fibrinosa típica de Salmonella y parvovirus.",
+  col:"Salmonelosis en terneros/cerdos y parvovirus canino (diarisímo en Colombia) cursan con enteritis fibrinosa/necrótica.",
+  pista:"Pseudomembrana de fibrina sobre la mucosa intestinal."
+},
+{
+  sys:"dig", nombre:"Peritonitis",
+  macro:"Serosa con exudado de fibrina/pus; adherencias. Suele ser SECUNDARIA a perforación/rotura de víscera.",
+  micro:"Serosa con fibrina + neutrófilos + bacterias. En PIF felina: piogranulomas perivasculares + vasculitis con efusión rica en proteína.",
+  celulas:"Neutrófilos + fibrina + bacterias (bacteriana); piogranuloma (macrófagos) en PIF.",
+  confunde:["Pleuritis","Ascitis (hidroperitoneo)"],
+  clave:"CLAVE: peritonitis = INFLAMACIÓN del peritoneo (fibrina/pus). Ascitis = líquido transudado SIN inflamación. Relaciona el 'sitio de rotura' por especie (úlcera de abomaso en terneros, rotura gástrica en equinos).",
+  col:"PIF felina (gatos jóvenes, abdomen con líquido amarillo viscoso) muy temida en Colombia. Peritonitis por perforación de abomaso en terneros.",
+  pista:"Fibrina/pus en el peritoneo; casi siempre por rotura de víscera."
+},
+
+// ============ HÍGADO ============
+{
+  sys:"hig", nombre:"Esteatosis hepática (lipidosis / hígado graso)",
+  macro:"Hígado AMARILLO, aumentado de tamaño, friable, bordes redondeados; flota en formol.",
+  micro:"Hepatocitos con VACUOLAS REDONDAS, bien definidas, que DESPLAZAN el núcleo a la periferia (macrovesicular).",
+  celulas:"Hepatocitos cargados de vacuolas grasas; no es inflamatorio de base (es acúmulo).",
+  confunde:["Degeneración hidrópica","Necrosis hepática"],
+  clave:"CLAVE: esteatosis = vacuola REDONDA bien definida que empuja el núcleo. Degeneración hidrópica = citoplasma TURBIO/acuoso (agua, no grasa), núcleo central. Grasa = redonda y nítida.",
+  col:"Lipidosis hepática felina en gatas obesas anoréxicas (urgencia); hígado graso/cetosis en vacas lecheras posparto (Antioquia, Nariño, sabana de Bogotá).",
+  pista:"Hígado amarillo; hepatocitos con vacuola redonda que corre el núcleo."
+},
+{
+  sys:"hig", nombre:"Degeneración hidrópica hepática",
+  macro:"Hígado pálido, aumentado; citoplasma de aspecto turbio.",
+  micro:"Hepatocitos tumefactos, citoplasma pálido GRANULAR/TURBIO (entrada de agua por falla de la bomba Na/K), núcleo conservado. REVERSIBLE.",
+  celulas:"Hepatocitos hinchados con citoplasma claro-turbio; sin vacuolas grasas nítidas.",
+  confunde:["Esteatosis hepática","Necrosis hepática"],
+  clave:"CLAVE: hidrópica = citoplasma TURBIO/acuoso (agua), reversible. Esteatosis = vacuola REDONDA de grasa que desplaza el núcleo. Necrosis = muerte celular (pérdida de núcleo).",
+  col:"Base del daño por plantas tóxicas (Senecio, Lantana) e intoxicaciones en ganado de pastoreo colombiano.",
+  pista:"Hepatocitos hinchados con citoplasma turbio; reversible."
+},
+{
+  sys:"hig", nombre:"Necrosis hepática centrolobulillar",
+  macro:"Patrón lobulillar acentuado; zonas pálidas o rojas alrededor de las venas centrales.",
+  micro:"Necrosis de hepatocitos alrededor de la VENA CENTRAL (zona 3).",
+  celulas:"Hepatocitos necróticos centrolobulillares (pérdida de núcleo, citoplasma eosinofílico); infiltrado según causa.",
+  confunde:["Necrosis periportal","Necrosis mediozonal","Congestión hepática (nuez moscada)"],
+  clave:"CLAVE por zona: CENTROLOBULILLAR (vena central) = hipoxia y muchos tóxicos. PERIPORTAL (tríadas) = tóxicos que entran por la porta. MEDIOZONAL = aflatoxina. Ubica la necrosis respecto a vena central vs tríada.",
+  col:"Por hipoxia (anemia, falla cardíaca) y hepatotóxicos. En Colombia, plantas hepatotóxicas y micotoxinas en concentrados.",
+  pista:"Necrosis alrededor de la vena central; hipoxia o tóxico."
+},
+{
+  sys:"hig", nombre:"Fibrosis / cirrosis hepática",
+  macro:"Hígado DURO y RUGOSO, nodular, con pérdida de arquitectura.",
+  micro:"Bandas de TEJIDO CONECTIVO (colágeno) que dividen el parénquima en nódulos de regeneración; anisocitosis, retención de pigmento biliar. Tricrómico resalta el colágeno verde/azul.",
+  celulas:"Colágeno (fibrosis) + hepatocitos de tamaño irregular (anisocitosis) + infiltrado crónico.",
+  confunde:["Hiperplasia nodular","Necrosis hepática"],
+  clave:"CLAVE: cirrosis = fibrosis (colágeno) + nódulos de regeneración + pérdida de arquitectura, IRREVERSIBLE. Es el estado final del daño crónico.",
+  col:"Estado final de intoxicaciones crónicas por plantas (Senecio/Crotalaria en bovinos/equinos colombianos) y hepatitis crónica en perros.",
+  pista:"Hígado duro y nodular con bandas de colágeno."
+},
+{
+  sys:"hig", nombre:"Hepatitis infecciosa canina (adenovirus tipo 1)",
+  macro:"Hígado aumentado, a veces con fibrina en la cápsula; ictericia, edema corneal ('ojo azul'), ascitis.",
+  micro:"CUERPOS DE INCLUSIÓN INTRANUCLEARES en hepatocitos (grandes, basófilos/anfófilos, que marginan la cromatina) + necrosis centrolobulillar.",
+  celulas:"Inclusiones INTRANUCLEARES virales en hepatocitos + necrosis; infiltrado variable.",
+  confunde:["Necrosis hepática por tóxico","Salmonelosis hepática"],
+  clave:"CLAVE: perro JOVEN + inclusiones INTRANUCLEARES en hepatocitos = hepatitis infecciosa canina (adenovirus 1). Las inclusiones intranucleares = viral; no las confundas con necrosis tóxica (sin inclusiones).",
+  col:"Prevenible con vacuna (la 'H'); aún se ve en cachorros no vacunados en zonas rurales de Colombia. 'Ojo azul' (edema corneal) es dato típico.",
+  pista:"Perro joven con inclusiones intranucleares en hepatocitos."
+},
+{
+  sys:"hig", nombre:"Fasciola hepatica (fascioliasis)",
+  macro:"Conductos biliares engrosados, fibróticos, a veces calcificados; trayectos de migración en el parénquima. A veces el parásito visible en los conductos.",
+  micro:"Colangitis crónica: conductos biliares con fibrosis + infiltrado EOSINOFÍLICO; trayectos migratorios con necrosis, hemorragia y eosinófilos → fibrosis.",
+  celulas:"EOSINÓFILOS abundantes (parásito) + fibrosis + hiperplasia del epitelio biliar.",
+  confunde:["Colangiohepatitis bacteriana","Hepatitis parasitaria por migración"],
+  clave:"CLAVE: infiltrado EOSINOFÍLICO en hígado = PARÁSITO. Fasciola: conductos biliares duros/engrosados con eosinófilos. La colangitis bacteriana tendría neutrófilos, no eosinófilos.",
+  col:"MUY común en Colombia en zonas frías y húmedas con caracol Lymnaea (altiplano cundiboyacense, Nariño, Antioquia): decomiso masivo de hígados bovinos. Zoonosis.",
+  pista:"Conductos biliares duros con eosinófilos en bovino; hay una duela."
+},
+{
+  sys:"hig", nombre:"Absceso hepático",
+  macro:"En BOVINOS/equinos: cavidades con pus, encapsuladas, en el parénquima hepático.",
+  micro:"Cavidad con neutrófilos/pus central + bacterias, rodeada de cápsula fibrosa y tejido de granulación; necrosis licuefactiva central.",
+  celulas:"NEUTRÓFILOS (pus) + bacterias + cápsula fibrosa (crónico). Supurativo.",
+  confunde:["Salmonelosis hepática (nódulos paratifoideos)","Tuberculosis hepática"],
+  clave:"CLAVE: absceso = NEUTRÓFILOS/pus licuefactivo con cápsula. Nódulo paratifoideo (Salmonella) = necrosis de coagulación + granuloma. TBC = granuloma con células gigantes y necrosis caseosa.",
+  col:"Complejo acidosis ruminal → rumenitis → abscesos hepáticos en ceba intensiva colombiana → decomiso. Onfaloflebitis en terneros.",
+  pista:"Cavidad con pus y cápsula en hígado de bovino."
+},
+
+// ============ PÁNCREAS ============
+{
+  sys:"pan", nombre:"Atrofia acinar pancreática (insuficiencia pancreática exocrina)",
+  macro:"Páncreas reducido/adelgazado; perro delgado con heces voluminosas, grasosas y claras (esteatorrea) pese a apetito voraz.",
+  micro:"Pérdida de ACINOS pancreáticos (quedan islotes y ductos). Pancreatitis crónica: fibrosis + infiltrado + atrofia acinar.",
+  celulas:"Pérdida de células acinares (con gránulos de zimógeno); se conservan islotes; fibrosis/infiltrado en la crónica.",
+  confunde:["Pancreatitis aguda","Hipoplasia pancreática"],
+  clave:"CLAVE: atrofia acinar = pérdida de acinos → EPI (mala digestión). Conecta con DIGESTIVO: mala asimilación en la fase intraluminal (faltan enzimas pancreáticas).",
+  col:"Clásica en PASTOR ALEMÁN (raza presente en Colombia): perro joven, flaco, con esteatorrea y hambre voraz. Se trata con enzimas pancreáticas.",
+  pista:"Perro flaco con heces grasosas; faltan acinos pancreáticos."
+},
+
+// ============ URINARIO ============
+{
+  sys:"uri", nombre:"Uremia (lesiones extrarrenales)",
+  macro:"Múltiples órganos: edema pulmonar, pericarditis fibrinosa, estomatitis/gastritis ulcerativa, mineralización de tejidos blandos (pleura, estómago, endocardio).",
+  micro:"Mineralización (depósitos basófilos de calcio) + necrosis vascular; gastritis urémica con mineralización de la mucosa.",
+  celulas:"Depósitos de calcio basófilos + necrosis; infiltrado según el órgano. Amoníaco daña vasos.",
+  confunde:["Gastritis urémica (digestivo)","Mineralización por intoxicación con vitamina D"],
+  clave:"CLAVE: uremia = SÍNDROME con lesiones en varios órganos (no solo el número de laboratorio = azotemia). Las lesiones salen por ↑permeabilidad vascular, amoníaco y alteración del Ca-P. PUENTE con digestivo (gastritis urémica).",
+  col:"Gato/perro con IRC que llega babeando, con úlceras orales, mal aliento amoniacal y vómito. Muy común en geriátricos en Colombia.",
+  pista:"Lesiones en muchos órganos por falla renal: mineralización + gastritis."
+},
+{
+  sys:"uri", nombre:"Displasia renal",
+  macro:"Riñón pequeño, DESORGANIZADO, de forma irregular (a diferencia de la hipoplasia que es pequeño pero normal).",
+  micro:"Estructuras renales INMADURAS/desorganizadas para la edad: túbulos fetales, mesénquima primitivo, a veces cartílago metaplásico, glomérulos inmaduros.",
+  celulas:"Tejido renal inmaduro/desorganizado; fibrosis variable.",
+  confunde:["Hipoplasia renal","Nefritis intersticial crónica"],
+  clave:"CLAVE: displasia = desarrollo DESORGANIZADO (estructuras inmaduras). Hipoplasia = tejido NORMAL pero en menor cantidad (riñón pequeño bien formado). Desorganizado vs poco-pero-normal.",
+  col:"En perros jóvenes de ciertas razas → IRC a edad temprana. Diferenciar de hipoplasia es clave para el pronóstico.",
+  pista:"Riñón con tejido inmaduro y desorganizado desde el nacimiento."
+},
+{
+  sys:"uri", nombre:"Glomerulonefritis",
+  macro:"Riñones a veces pálidos/moteados; difícil a simple vista.",
+  micro:"Glomérulo HIPERCELULAR o con engrosamiento de membrana basal, según el tipo: PROLIFERATIVA (↑células), MESANGIOPROLIFERATIVA (mesangio), MEMBRANOPROLIFERATIVA (membrana engrosada 'en asa de alambre' + proliferación).",
+  celulas:"Proliferación de células glomerulares (endoteliales/mesangiales) ± infiltrado inflamatorio; engrosamiento de membrana basal.",
+  confunde:["Amiloidosis renal","Glomerulitis"],
+  clave:"CLAVE vs amiloidosis: la GN es HIPERCELULAR (células aumentadas) o con membrana engrosada. La amiloidosis deposita material ACELULAR, homogéneo y eosinofílico (Rojo Congo +). Células vs material amorfo.",
+  col:"Causa de síndrome nefrótico (proteinuria, edema) en perros en Colombia, a menudo secundaria a infecciones crónicas (ehrlichiosis, leishmaniasis).",
+  pista:"Glomérulo con más células o membrana engrosada."
+},
+{
+  sys:"uri", nombre:"Amiloidosis renal",
+  macro:"Riñones pálidos, aumentados, cerosos.",
+  micro:"Depósito de material EOSINOFÍLICO, HOMOGÉNEO (acelular) en el glomérulo (expande mesangio/paredes). ROJO CONGO → birrefringencia VERDE MANZANA con luz polarizada.",
+  celulas:"Material amiloide amorfo (NO células); Rojo Congo positivo.",
+  confunde:["Glomerulonefritis","Glomeruloesclerosis"],
+  clave:"CLAVE: amiloide = material HOMOGÉNEO, acelular, eosinofílico, Rojo Congo (verde manzana en polarizada). La GN es HIPERCELULAR. Material amorfo vs células.",
+  col:"Síndrome nefrótico/IRC con proteinuria masiva; Shar Pei predispuesto. Secundaria a inflamación crónica en bovinos/ovinos.",
+  pista:"Material rosado homogéneo en glomérulo; Rojo Congo verde manzana."
+},
+{
+  sys:"uri", nombre:"Infarto renal",
+  macro:"Áreas CUNEIFORMES (triangulares, base hacia la cápsula) pálidas o rojas, deprimidas.",
+  micro:"Necrosis de COAGULACIÓN en cuña por isquemia (oclusión trombótica/embólica); borde con congestión/inflamación.",
+  celulas:"Necrosis de coagulación (contornos celulares conservados, sin núcleo); neutrófilos en el borde.",
+  confunde:["Necrosis cortical bilateral","Nefritis embólica"],
+  clave:"CLAVE: infarto = necrosis de coagulación CUNEIFORME por isquemia (un vaso ocluido). Necrosis cortical bilateral = toda la corteza por microtrombos difusos (CID). Nefritis embólica = focos supurativos múltiples con bacterias.",
+  col:"Tromboembolismo en gatos cardiópatas; émbolos desde endocarditis.",
+  pista:"Zona triangular de necrosis por un vaso ocluido."
+},
+{
+  sys:"uri", nombre:"Necrosis tubular aguda (NTA)",
+  macro:"Riñones tumefactos, pálidos; corteza abultada.",
+  micro:"Epitelio tubular TUMEFACTO/NECRÓTICO, desprendido a la luz; cilindros; membrana basal a veces desnuda. La degeneración tubular es el proceso PRIMARIO. En etilenglicol: cristales de OXALATO en la luz.",
+  celulas:"Epitelio tubular necrótico/descamado + cilindros; cristales de oxalato (etilenglicol) o cilindros pardos (mioglobina/hemoglobina).",
+  confunde:["Nefritis intersticial","Infarto renal"],
+  clave:"CLAVE: NTA = daño PRIMARIO del TÚBULO (epitelio descamado, cilindros), causa #1 de IRA y a menudo REVERSIBLE si la membrana basal queda intacta. Nefritis intersticial = infiltrado en el INTERSTICIO.",
+  col:"Muy relevante: nefrotóxicos en Colombia — gentamicina, AINES, etilenglicol (anticongelante), roble/Quercus y Lantana en ganado, aflatoxinas; mioglobinuria en equinos.",
+  pista:"Túbulos con epitelio descamado y cilindros; busca cristales."
+},
+{
+  sys:"uri", nombre:"Nefritis intersticial (linfoplasmocítica)",
+  macro:"Riñón con focos pálidos, superficie irregular/cicatricial en crónico.",
+  micro:"Infiltrado inflamatorio en el INTERSTICIO (entre túbulos) con fibrosis. Según patrón: LINFOPLASMOCÍTICA, granulomatosa, supurativa o embólica.",
+  celulas:"LINFOCITOS + PLASMOCITOS (linfoplasmocítica, crónico) en el intersticio + fibrosis. Patrón crónico clásico.",
+  confunde:["Necrosis tubular aguda","Pielonefritis","Glomerulonefritis"],
+  clave:"CLAVE: nefritis intersticial = infiltrado en el INTERSTICIO (linfocitos+plasmáticas). NTA = daño del TÚBULO. Pielonefritis = afecta PELVIS + parénquima (ascendente). Identifica DÓNDE está el infiltrado.",
+  col:"Leptospirosis = causa frecuente y ZOONÓSICA en perros y bovinos en Colombia (clima húmedo, roedores).",
+  pista:"Linfocitos y plasmáticas en el intersticio renal."
+},
+{
+  sys:"uri", nombre:"Pielonefritis",
+  macro:"Inflamación de la PELVIS renal + parénquima; cálices deformados; estrías/abscesos que irradian de la pelvis a la corteza.",
+  micro:"Infiltrado neutrofílico/supurativo en pelvis y médula; cilindros leucocitarios en túbulos; necrosis del urotelio pélvico; en crónico fibrosis y deformidad de cálices.",
+  celulas:"NEUTRÓFILOS (supurativo) en pelvis/túbulos; cilindros leucocitarios. Linfoplasmocitario si crónico.",
+  confunde:["Nefritis intersticial","Nefritis embólica"],
+  clave:"CLAVE: pielonefritis = ASCENDENTE (desde vejiga), afecta la PELVIS + cálices. Nefritis embólica = HEMATÓGENA, focos al azar en corteza. Pelvis afectada + vía ascendente = pielonefritis.",
+  col:"Vacas (Corynebacterium/Trueperella renale) y cerdas; perras/gatas por E. coli ascendente, favorecida por urolitos/retención.",
+  pista:"Inflamación que sube desde la vejiga y afecta la pelvis renal."
+},
+{
+  sys:"uri", nombre:"Hidronefrosis",
+  macro:"Pelvis y cálices DILATADOS; el riñón se vuelve una 'bolsa' quística con atrofia PROGRESIVA del parénquima (queda una cáscara delgada).",
+  micro:"Pelvis dilatada, atrofia por compresión de túbulos y glomérulos, fibrosis intersticial.",
+  celulas:"Atrofia tubular/glomerular por presión + fibrosis; sin infiltrado prominente salvo infección sobreagregada.",
+  confunde:["Quistes renales / enfermedad poliquística","Pielonefritis"],
+  clave:"CLAVE: hidronefrosis = dilatación de pelvis por OBSTRUCCIÓN urinaria (la filtración sigue y la orina represada comprime el parénquima). Los quistes son cavidades revestidas de epitelio, no una pelvis dilatada.",
+  col:"En perros machos por hiperplasia prostática; por urolitos que obstruyen; obstrucción uretral del gato (FLUTD).",
+  pista:"Pelvis dilatada por obstrucción; el parénquima se atrofia."
+},
+{
+  sys:"uri", nombre:"Urolitiasis (cálculos urinarios)",
+  macro:"Cálculos (urolitos) en vías urinarias; irritación/hemorragia del urotelio; si obstruyen → hidronefrosis o ruptura vesical.",
+  micro:"El urolito es macroscópico; en la vía urinaria causa irritación del urotelio, hemorragia e inflamación.",
+  celulas:"Inflamación del urotelio (neutrófilos, luego linfoplasmocitario); hemorragia.",
+  confunde:["Cistitis","FLUTD felina"],
+  clave:"CLAVE: urolitiasis = presencia de cálculos. Composición por especie: perro/gato = estruvita y oxalato; bovino/ovino = sílice; equino = carbonato. Estruvita se asocia a orina alcalina/infección; oxalato a orina ácida.",
+  col:"Obstrucción uretral por estruvita/oxalato en GATOS machos (emergencia, 'gato tapado'); sílice en rumiantes a pastoreo. Urgencia: uremia post-renal.",
+  pista:"Piedras en la vía urinaria; ojo con el gato macho obstruido."
+},
+{
+  sys:"uri", nombre:"Cistitis",
+  macro:"Pared vesical engrosada, hemorrágica o con fibrina; en crónico, POLIPOIDE (proyecciones de mucosa).",
+  micro:"Infiltrado inflamatorio en mucosa/pared vesical + hemorragia + erosión/úlcera + fibrina; crónica con fibrosis.",
+  celulas:"Neutrófilos (aguda/hemorrágica/fibrinopurulenta); linfoplasmocitario + fibrosis (crónica).",
+  confunde:["Pielonefritis","Carcinoma de células transicionales"],
+  clave:"CLAVE: cistitis = inflamación de la VEJIGA, por bacterias ASCENDENTES (E. coli, sobre todo en hembras por uretra corta). Puede ascender → pielonefritis. El carcinoma de transicionales causa hematuria crónica que NO responde a antibiótico.",
+  col:"Cistitis por E. coli ascendente muy común en perras y gatas en Colombia; favorecida por urolitos y cateterización.",
+  pista:"Vejiga inflamada por bacterias que suben; más en hembras."
 },
 ];

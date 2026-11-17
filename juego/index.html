@@ -9,6 +9,7 @@
     --bg:#0f1720; --card:#172330; --card2:#1d2b3a; --ink:#e8eef4; --muted:#9fb2c4;
     --acc:#49b6a8; --acc2:#f0a24b; --ok:#54c98a; --bad:#e8706e; --warn:#e8c468;
     --line:#2a3b4d; --chip:#223243; --resp:#5aa9e6; --card-s:#e07a7a;
+  --dig:#6fe0cf; --hig:#f0c878; --pan:#e6a0f0; --uri:#6fd4e0;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
@@ -29,6 +30,10 @@
   .sysbadge{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:12px}
   .s-resp{background:#123247;color:#8fcdf0}
   .s-card{background:#3a1515;color:#f0a0a0}
+  .s-dig{background:#123a33;color:#6fe0cf}
+  .s-hig{background:#3a2f12;color:#f0c878}
+  .s-pan{background:#331238;color:#e6a0f0}
+  .s-uri{background:#10303a;color:#6fd4e0}
   .qlabel{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--acc)}
   .field{margin:10px 0}
   .field .k{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
@@ -73,7 +78,7 @@
 <script src="lesiones.js"></script>
 <script>
 const app=document.getElementById("app");
-const SYS={resp:["s-resp","Respiratorio"],card:["s-card","Cardiovascular"]};
+const SYS={dig:["s-dig","Digestivo"],hig:["s-hig","Hígado"],pan:["s-pan","Páncreas"],uri:["s-uri","Urinario"],resp:["s-resp","Respiratorio"],card:["s-card","Cardiovascular"]};
 let state={modo:"multi",sistema:"all",pool:[],i:0,score:0,racha:0,maxracha:0,answered:false};
 
 function norm(s){return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9 ]/g,"").trim()}
@@ -90,6 +95,10 @@ function setupScreen(){
       <h2>2. ¿Qué sistema?</h2>
       <div class="opts" id="sistema">
         <button data-v="all" class="on">Todos mezclados</button>
+        <button data-v="dig">Digestivo</button>
+        <button data-v="hig">Hígado</button>
+        <button data-v="pan">Páncreas</button>
+        <button data-v="uri">Urinario</button>
         <button data-v="resp">Respiratorio</button>
         <button data-v="card">Cardiovascular</button>
       </div>
